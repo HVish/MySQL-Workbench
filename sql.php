@@ -1,51 +1,43 @@
 <?php
-	$q = $_RQUEST["q"];
-	if($q == "1"){
-		echo "
-		<thead>
-			<tr>
-				<th>c1</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>one</td>
-			</tr>
-		</tbody>
-		";
-	}
-	else if($q == "2"){
-		echo "
-		<thead>
-			<tr>
-				<th>c1</th>
-				<th>c2</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>one</td>
-				<td>two</td>
-			</tr>
-		</tbody>
-		";
-	}
-	else if($q == "3"){
-		echo "
-		<thead>
-			<tr>
-				<th>c1</th>
-				<th>c2</th>
-				<th>c3</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>one</td>
-				<td>two</td>
-				<td>three</td>
-			</tr>
-		</tbody>
-		";
+	$q = $_POST["Query"];
+	// Create connection
+	$conn = new mysqli("localhost", "root", "","test");
+	
+	// Check connection
+	if ($conn->connect_error) {
+		echo "Mysql Connection Failed! Check Mysql service is running or not!";
+	} 
+	else{
+		$result = $conn->query($q);
+		if($result === TRUE){
+			echo "Query executed successfully";
+		}else if($result === FALSE){
+			echo $conn->error;
+		}
+		else if($result->num_rows > 0){
+			$rc = 0;
+			$cc = 0;
+			if($row = $result->fetch_assoc()){
+				echo "<thead><tr>";
+				foreach($row as $keys => $value){
+					echo "<th>{$keys}</th>";
+				}
+				echo "</tr></thead><tbody>";
+				
+				echo "<tr>";
+				foreach($row as $keys => $value){
+					echo "<td>{$value}</td>";
+				}
+				echo "</tr>";
+				while($row = $result->fetch_assoc()){
+					echo "<tr>";
+					foreach($row as $keys => $value){
+						echo "<td>{$value}</td>";
+					}
+					echo "</tr>";
+				}
+				echo "</tbody>";	
+			}
+		}
 	}
 ?>

@@ -18,7 +18,7 @@
 						<div class="panel-heading">Enter Your SQL Query Here</div>
 						<div class="panel-body">
 							<label for="Query">Query:</label>
-							<textarea class="form-control" rows="9" id="Query"></textarea>
+							<textarea class="form-control" rows="9" id="Query" onkeyup="init(this.value)"></textarea>
 						</div>
 						<div class="panel-footer">
 							<button type="button" class="btn btn-primary btn-md" onclick="qryexec()">Run Query</button>
@@ -51,7 +51,7 @@
 								</tbody>
 							</table>
 						</div>
-						<div class="panel-footer">Rows:0 Columns:0</div>
+						<div class="panel-footer" id="fd">Rows:0 Columns:0</div>
 					</div>
 				</div>
 			</div>
