@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>MySQL Experiments</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.css">
+		<link rel="stylesheet" href="css/theme.css">
+	</head>
+	<body>
+		
+		<div class="container">
+			<div class="jumbotron col-sm-12" style="border-radius:0px">
+				<h1>MySQL Workbench</h1> 
+				<p>Enter your query here in the left pane, your output will be appeared in right pane.</p> 
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">Enter Your SQL Query Here</div>
+						<div class="panel-body">
+							<label for="Query">Query:</label>
+							<textarea class="form-control" rows="9" id="Query"></textarea>
+						</div>
+						<div class="panel-footer">
+							<button type="button" class="btn btn-primary btn-md" onclick="qryexec()">Run Query</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">Output</div>
+						<div class="panel-body">
+							<table id="output" class="table table-striped table-bordered table-hover" style="margin-bottom:0">
+								<thead>
+									<tr class="info">
+										<th>Column 1</th>
+										<th>Column 2 ...</th>
+										<th>Column N</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Cell 1</td>
+										<td>Cell 2 ...</td>
+										<td>Cell N</td>
+									</tr>
+									<tr>
+										<td>Cell 1</td>
+										<td>Cell 2 ...</td>
+										<td>Cell N</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="panel-footer">Rows:0 Columns:0</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/index.js"></script>
+</html>

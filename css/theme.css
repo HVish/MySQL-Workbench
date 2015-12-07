@@ -1,0 +1,9 @@
+.jumbotron{
+	color: #FFF;
+    background-color: #2F71A9;
+	border-radius: 0;
+}
+textarea{
+	resize: none;
+	overflow-y: auto;
+}
